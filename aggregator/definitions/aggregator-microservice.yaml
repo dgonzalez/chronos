@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: aggregator-service
 spec:
-  replicas: 1
+  replicas: 7
   template:
     metadata:
       labels:
@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: aggregator-service
-        image: eu.gcr.io/basic-eon-140511/aggregator:latest
+        image: eu.gcr.io/david-on-microservices/aggregator:latest
         ports:
         - containerPort: 8080

@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: isodate-service
-        image: eu.gcr.io/basic-eon-140511/isodate-service:latest
+        image: eu.gcr.io/david-on-microservices/isodate-service:latest
         ports:
         - containerPort: 3000
