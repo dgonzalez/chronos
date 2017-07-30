@@ -1,6 +1,5 @@
 const Hapi = require('hapi')
 const server = new Hapi.Server()
-const moment = require('moment')
 let request = require('request')
 
 server.connection({port: 8080})
