@@ -7,7 +7,7 @@ server.connection({port: 3000})
 server.route({
   method: 'GET',
   path: '/isodate/{timestamp}',
-  handler:  (request, reply) => {
+  handler: (request, reply) => {
     reply({date: moment.unix(request.params.timestamp).toISOString()})
   }
 })
