@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: aggregator-service
-        image: eu.gcr.io/david-on-microservices/aggregator:latest
+        image: eu.gcr.io/kubernautsio/aggregator:latest
         ports:
         - containerPort: 8080
