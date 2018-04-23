@@ -5,7 +5,7 @@ server.connection({port: 3001})
 
 server.route({
   method: 'GET',
-  path: '/utcdate/{timestamp}',
+  path: '/{timestamp}/utcdate',
   handler: (request, reply) => {
     let date = moment.unix(request.params.timestamp).utc().toISOString().substring(0, 19)
     reply({date: date})

@@ -1,30 +1,20 @@
 const Hapi = require('hapi')
 const server = new Hapi.Server()
-let request = require('request')
+let request = require('request-promise')
 
 server.connection({port: 8080})
 
 server.route({
   method: 'GET',
   path: '/dates/{timestamp}',
-  handler: (req, reply) => {
-    const utcEndpoint = `http://utcdate-service:3001/utcdate/${req.params.timestamp}`
-    const isoEndpoint = `http://isodate-service:3000/isodate/${req.params.timestamp}`
-    request(utcEndpoint, (err, response, utcBody) => {
-      if (err) {
-        console.log(err)
-        return
-      }
-      request(isoEndpoint, (err, response, isoBody) => {
-        if (err) {
-          console.log(err)
-          return
-        }
-        reply({
-          utcDate: JSON.parse(utcBody).date,
-          isoDate: JSON.parse(isoBody).date
-        })
-      })
+  handler: async (req, reply) => {
+    const utcEndpoint = `http://localhost:3001/${req.params.timestamp}/utcdate`
+    const isoEndpoint = `http://localhost:3000/${req.params.timestamp}/isodate`
+    let utcBody = await request(utcEndpoint)
+    let isoBody = await request(isoEndpoint)
+    reply({
+      utcDate: JSON.parse(utcBody).date,
+      isoDate: JSON.parse(isoBody).date
     })
   }
 })
