@@ -2,7 +2,7 @@
   "kind": "Service",
   "apiVersion": "v1",
   "metadata": {
-    "name": "aggregator-service-test"
+    "name": "aggregator-service"
   },
   "spec": {
     "ports": [{
