@@ -12,6 +12,6 @@
     "selector": {
       "app": "aggregator-service"
     },
-    "type": "LoadBalancer"
+    "type": "NodePort"
   }
 }
