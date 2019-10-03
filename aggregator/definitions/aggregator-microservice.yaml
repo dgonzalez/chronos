@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: aggregator-service
 spec:
-  replicas: 3
+  replicas: 15
   template:
     metadata:
       labels:
