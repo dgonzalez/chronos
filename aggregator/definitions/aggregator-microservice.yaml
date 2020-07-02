@@ -4,13 +4,16 @@ metadata:
   name: aggregator-service
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
   template:
     metadata:
       labels:
-        app: aggregator-service
+        app: nginx
     spec:
       containers:
-      - name: aggregator-service
-        image: nginx
+      - name: nginx
+        image: nginx:1.14.2
         ports:
-        - containerPort: 8080
+        - containerPort: 80
