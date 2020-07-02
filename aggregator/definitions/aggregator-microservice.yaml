@@ -1,7 +1,7 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aggregator-service-2
+  name: aggregator-service
 spec:
   replicas: 3
   template:
